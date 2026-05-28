@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #1a120a;
+  background-color: #f7f4ef; /* Soft pastel cream/off-white */
   color: var(--ink);
   font-family: 'Crimson Pro', Georgia, serif;
   min-height: 100vh;
@@ -37,11 +37,11 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, #2e1e0a 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, #1a0f05 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 20%, #fae1dd 0%, transparent 60%), /* Soft pastel blush pink */
+    radial-gradient(ellipse at 80% 80%, #e8e8f4 0%, transparent 60%), /* Gentle pastel lavender/blue */
     repeating-linear-gradient(
       45deg, transparent, transparent 2px,
-      rgba(184,134,11,0.03) 2px, rgba(184,134,11,0.03) 4px
+      rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0.4) 4px /* Subtle light texture */
     );
   pointer-events: none;
   z-index: 0;

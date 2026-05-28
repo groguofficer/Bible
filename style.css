@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #1a120a;
+  background-color: #f2ece6;
   color: var(--ink);
   font-family: 'Crimson Pro', Georgia, serif;
   min-height: 100vh;

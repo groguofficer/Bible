@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #fafafa; /* Minimal off-white */
+  background-color: #1a120a;
   color: var(--ink);
   font-family: 'Crimson Pro', Georgia, serif;
   min-height: 100vh;
@@ -37,11 +37,11 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, #ffffff 0%, transparent 60%), /* Pure white glow */
-    radial-gradient(ellipse at 80% 80%, #f0f0f0 0%, transparent 60%), /* Soft light grey/off-white glow */
+    radial-gradient(ellipse at 20% 20%, #2e1e0a 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, #1a0f05 0%, transparent 60%),
     repeating-linear-gradient(
       45deg, transparent, transparent 2px,
-      rgba(0, 0, 0, 0.015) 2px, rgba(0, 0, 0, 0.015) 4px /* Ultra-subtle dark tint for texture */
+      rgba(184,134,11,0.03) 2px, rgba(184,134,11,0.03) 4px
     );
   pointer-events: none;
   z-index: 0;

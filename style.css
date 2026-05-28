@@ -2,20 +2,20 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --parchment:      #e2f3ee; /* Fresh light mint-cream for main text */
-  --parchment-dark: #badfd3; /* Soft muted mint-gray for secondary elements */
-  --parchment-deep: #8ec3b0; /* Deeper mint-sage for subtitles/breadcrumbs */
-  --ink:            #091a15; /* Dark forest-mint ink */
-  --ink-mid:        #143026; /* Deep pine-green */
-  --ink-light:      #3d7563; /* Muted sage-green for hints/footer */
-  --gold:           #2bb18b; /* Classic mint/emerald accent */
-  --gold-bright:    #4effcb; /* Brilliant, luminous neon-mint for headers/titles */
-  --gold-muted:     #1d8567; /* Muted teal-mint */
-  --crimson:        #00c896; /* Vibrant mint-green for verse numbers and highlights */
-  --crimson-deep:   #008563; /* Deep mint for active backgrounds */
-  --highlight-bg:   rgba(78, 255, 203, 0.12); /* Soft glowing mint highlight background */
+  --parchment:      #1a332a; /* Rich dark-mint forest ink for premium body text legibility */
+  --parchment-dark: #355e51; /* Medium mint-sage for secondary captions/labels */
+  --parchment-deep: #4d7a6c; /* Muted slate-mint for subtitles & breadcrumbs */
+  --ink:            #f5fbf9; /* Ultra-bright mint-cream canvas background */
+  --ink-mid:        #e6f4f0; /* Soft pastel-mint panel backgrounds */
+  --ink-light:      #5c877a; /* Sage-green for hints/footer metadata */
+  --gold:           #00a877; /* Deep vivid mint accent for borders & highlights */
+  --gold-bright:    #007a54; /* Dominant bold emerald-mint for headers/titles (high contrast) */
+  --gold-muted:     #238e6d; /* Muted teal-mint */
+  --crimson:        #00966a; /* Vibrant mint-green for verse numbers and interactive actions */
+  --crimson-deep:   #ccefe5; /* Light soft mint fill for active elements */
+  --highlight-bg:   rgba(0, 168, 119, 0.08); /* Refreshing, clean mint glow highlight background */
   --highlight-border: var(--gold);
-  --shadow:         rgba(5, 18, 14, 0.5);
+  --shadow:         rgba(0, 40, 28, 0.08);
   --radius-sm:      4px;
   --radius-md:      8px;
   --radius-lg:      16px;
@@ -24,8 +24,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0c1412; /* Rich midnight-mint dark background */
-  color: var(--ink);
+  background-color: var(--ink); /* Changed to bright mint-cream background */
+  color: var(--parchment);      /* High-contrast dark ink text */
   font-family: 'Crimson Pro', Georgia, serif;
   min-height: 100vh;
   position: relative;
@@ -37,11 +37,11 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, #162e24 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, #0b1712 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 20%, rgba(200, 240, 228, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(230, 245, 241, 0.6) 0%, transparent 60%),
     repeating-linear-gradient(
       45deg, transparent, transparent 2px,
-      rgba(78, 255, 203, 0.03) 2px, rgba(78, 255, 203, 0.03) 4px
+      rgba(0, 168, 119, 0.015) 2px, rgba(0, 168, 119, 0.015) 4px
     );
   pointer-events: none;
   z-index: 0;
@@ -50,7 +50,7 @@ body {
 .vignette {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(6, 12, 10, 0.8) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(215, 238, 232, 0.3) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -61,7 +61,7 @@ header {
   z-index: 10;
   text-align: center;
   padding: 3.5rem 2rem 2rem;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid rgba(0, 168, 119, 0.2);
 }
 
 .header-inner {
@@ -80,7 +80,7 @@ header {
   font-weight: 700;
   color: var(--gold-bright);
   letter-spacing: 0.12em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 40px rgba(78, 255, 203, 0.25);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 0 20px rgba(0, 168, 119, 0.1);
   line-height: 1;
 }
 
@@ -90,7 +90,6 @@ header {
   font-size: 1rem;
   color: var(--parchment-deep);
   letter-spacing: 0.08em;
-  opacity: 0.85;
 }
 
 /* ── Breadcrumb ── */
@@ -101,376 +100,5 @@ header {
   align-items: center;
   gap: 0.6rem;
   padding: 0.85rem 2rem;
-  background: rgba(12, 24, 20, 0.65);
-  border-bottom: 1px solid rgba(78, 255, 203, 0.15);
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-}
-
-.crumb { color: var(--parchment-deep); cursor: pointer; transition: color 0.2s; }
-.crumb:hover { color: var(--gold-bright); }
-.crumb.active { color: var(--gold-bright); cursor: default; }
-.crumb-sep { color: var(--gold); opacity: 0.6; }
-
-/* ── Main ── */
-main {
-  position: relative;
-  z-index: 10;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-}
-
-/* ── Panels ── */
-.panel { animation: fadeIn 0.4s ease both; }
-.panel[hidden] { display: none; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Panel Header ── */
-.panel-header { margin-bottom: 2rem; }
-
-.panel-header h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--gold-bright);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.panel-header h2::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--gold), transparent);
-  opacity: 0.5;
-}
-
-.panel-title-row {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.2rem;
-}
-.panel-title-row h2 { margin-bottom: 0; }
-
-/* ── Sticky reading header ── */
-.sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(12, 22, 18, 0.96);
-  backdrop-filter: blur(8px);
-  padding: 1rem 0 0.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(78, 255, 203, 0.2);
-}
-
-/* ── Back Button ── */
-.back-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  color: var(--parchment-dark);
-  background: rgba(43, 177, 139, 0.12);
-  border: 1px solid rgba(43, 177, 139, 0.35);
-  border-radius: var(--radius-sm);
-  padding: 0.4rem 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.back-btn:hover {
-  background: rgba(43, 177, 139, 0.25);
-  color: var(--gold-bright);
-  border-color: var(--gold);
-}
-
-/* ── Testament Tabs ── */
-.testament-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
-.tab-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  padding: 0.45rem 1.1rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(43, 177, 139, 0.4);
-  background: transparent;
-  color: var(--parchment-deep);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.tab-btn:hover { background: rgba(43, 177, 139, 0.15); color: var(--gold-bright); }
-.tab-btn.active {
-  background: rgba(43, 177, 139, 0.25);
-  border-color: var(--gold);
-  color: var(--gold-bright);
-}
-
-/* ── Book Grid ── */
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.6rem;
-}
-
-.book-btn {
-  font-family: 'Crimson Pro', serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-align: center;
-  padding: 0.7rem 0.5rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(43, 177, 139, 0.3);
-  background: rgba(226, 243, 238, 0.06);
-  color: var(--parchment);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-  line-height: 1.3;
-}
-.book-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(43, 177, 139, 0.15), transparent);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.book-btn:hover {
-  border-color: var(--gold);
-  color: var(--gold-bright);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(43, 177, 139, 0.2);
-}
-.book-btn:hover::before { opacity: 1; }
-.book-btn.active {
-  background: rgba(43, 177, 139, 0.2);
-  border-color: var(--gold-bright);
-  color: var(--gold-bright);
-}
-
-/* ── Chapter Pills ── */
-.chapter-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  padding: 1rem;
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(43, 177, 139, 0.2);
-  border-radius: var(--radius-md);
-  max-height: 160px;
-  overflow-y: auto;
-}
-.chapter-pills::-webkit-scrollbar { width: 6px; }
-.chapter-pills::-webkit-scrollbar-track { background: transparent; }
-.chapter-pills::-webkit-scrollbar-thumb { background: rgba(43, 177, 139, 0.4); border-radius: 3px; }
-
-/* ── Verse Jump Bar ── */
-.verse-jump-bar {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(43, 177, 139, 0.2);
-  border-radius: var(--radius-md);
-  margin-top: 0.5rem;
-}
-
-.jump-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.07em;
-  color: var(--gold-muted);
-  white-space: nowrap;
-  padding-top: 0.35rem;
-  flex-shrink: 0;
-}
-
-.verse-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  max-height: 110px;
-  overflow-y: auto;
-  flex: 1;
-}
-.verse-pills::-webkit-scrollbar { width: 6px; }
-.verse-pills::-webkit-scrollbar-track { background: transparent; }
-.verse-pills::-webkit-scrollbar-thumb { background: rgba(43, 177, 139, 0.4); border-radius: 3px; }
-
-/* ── Pill Buttons (chapters & verses) ── */
-.pill-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  min-width: 2.2rem;
-  padding: 0.28rem 0.55rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(43, 177, 139, 0.35);
-  background: rgba(226, 243, 238, 0.05);
-  color: var(--parchment-dark);
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: center;
-}
-.pill-btn:hover {
-  background: rgba(43, 177, 139, 0.2);
-  border-color: var(--gold);
-  color: var(--gold-bright);
-}
-.pill-btn.active {
-  background: rgba(0, 200, 150, 0.3);
-  border-color: var(--crimson);
-  color: #ffffff;
-}
-
-/* ── Scripture Display (chapter list) ── */
-.scripture-display {
-  background: rgba(226, 243, 238, 0.06);
-  border: 1px solid rgba(43, 177, 139, 0.25);
-  border-radius: var(--radius-md);
-  padding: 2rem 2.5rem;
-  min-height: 300px;
-  position: relative;
-}
-.scripture-display::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  opacity: 0.5;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-}
-
-/* ── Reading view (full chapter) ── */
-.reading-view {
-  padding: 2rem 2.5rem 3rem;
-  min-height: 60vh;
-}
-
-/* ── Chapter Title in Display ── */
-.display-chapter-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.1em;
-  text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(43, 177, 139, 0.3);
-}
-
-/* ── Verse Rows ── */
-.verse-row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.75;
-  align-items: baseline;
-  animation: verseFade 0.3s ease both;
-  padding: 0.4rem 0.6rem;
-  border-radius: var(--radius-sm);
-  border-left: 2px solid transparent;
-  transition: background 0.25s, border-color 0.25s;
-  scroll-margin-top: 220px; /* clears the sticky header */
-}
-
-@keyframes verseFade {
-  from { opacity: 0; transform: translateX(-4px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-/* Highlighted verse (jumped-to or clicked) */
-.verse-row.highlighted {
-  background: var(--highlight-bg);
-  border-left-color: var(--gold);
-}
-
-.verse-num {
-  font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--crimson);
-  min-width: 1.8rem;
-  text-align: right;
-  padding-top: 0.22rem;
-  flex-shrink: 0;
-  letter-spacing: 0.04em;
-  user-select: none;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-.verse-num:hover { color: var(--gold-bright); }
-
-.verse-text {
-  font-family: 'IM Fell English', serif;
-  font-size: 1.07rem;
-  color: var(--parchment);
-  line-height: 1.85;
-}
-
-/* ── Hint / Loading ── */
-.hint-text {
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
-  color: var(--ink-light);
-  opacity: 0.6;
-  text-align: center;
-  margin-top: 3rem;
-  font-size: 1.05rem;
-}
-
-.loading-spinner {
-  text-align: center;
-  padding: 3rem;
-  color: var(--gold);
-  font-family: 'Cinzel', serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  opacity: 0.7;
-  animation: pulse 1.4s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.9; }
-}
-
-/* ── Footer ── */
-footer {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 1.5rem;
-  font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-light);
-  opacity: 0.5;
-  border-top: 1px solid rgba(43, 177, 139, 0.15);
-}
-
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .book-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-  .scripture-display, .reading-view { padding: 1.25rem 1rem; }
-  .chapter-pills { max-height: 130px; }
-  .verse-jump-bar { flex-direction: column; gap: 0.5rem; }
-  .verse-pills { max-height: 90px; }
-  .header-inner { flex-direction: column; gap: 0.5rem; }
-  .verse-row { scroll-margin-top: 280px; }
-}
+  background: rgba(230, 244, 240, 0.7);
+  backdrop-

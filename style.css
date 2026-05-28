@@ -1,0 +1,284 @@
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+    --parchment:    #f9f5ee;
+    --parchment-dk: #ede7d9;
+    --ink:          #1c1810;
+    --ink-mid:      #3d3529;
+    --ink-light:    #6b5f4f;
+    --gold:         #8b6914;
+    --gold-lt:      #c9a84c;
+    --red:          #7a1c1c;
+    --border:       #d4c9b0;
+    --shadow:       rgba(28,24,16,0.10);
+    --f-display:    'Playfair Display', Georgia, 'Times New Roman', serif;
+    --f-body:       'Lora', Georgia, 'Times New Roman', serif;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--f-body);
+    background: var(--parchment-dk);
+    color: var(--ink);
+    line-height: 1.75;
+    min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+    background: var(--parchment);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px 28px;
+    text-align: center;
+}
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.ornament { color: var(--gold-lt); letter-spacing: 0.5em; font-size: 0.85rem; }
+.site-header h1 {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+}
+.header-sub { font-style: italic; font-size: 0.9rem; color: var(--ink-light); }
+
+/* ============================================================
+   AUDIO BAR
+   ============================================================ */
+.audio-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--f-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--parchment);
+    background: var(--gold);
+    border: none;
+    border-radius: 3px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+.audio-btn:hover  { background: var(--gold-lt); transform: translateY(-1px); }
+.audio-btn:active { transform: translateY(0); }
+
+.audio-btn--stop   { background: var(--ink-mid); }
+.audio-btn--stop:hover { background: var(--ink); }
+
+.audio-btn--cancel { background: var(--red); }
+.audio-btn--cancel:hover { background: #9a2c2c; }
+
+.audio-icon  { font-size: 0.75rem; line-height: 1; }
+
+.audio-status {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--ink-light);
+    min-width: 120px;
+    text-align: left;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    max-width: 1260px;
+    margin: 32px auto;
+    padding: 0 22px;
+    align-items: flex-start;
+}
+.left-col  { flex: 0 0 370px; display: flex; flex-direction: column; gap: 20px; }
+.right-col { flex: 1; min-width: 300px; }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 22px 22px 18px;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: relative;
+}
+.card-label {
+    font-family: var(--f-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+/* ============================================================
+   VERSE CARD
+   ============================================================ */
+.verse-card { border-left: 3px solid var(--gold-lt); }
+
+#random-verse-container p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    line-height: 1.85;
+}
+#random-verse-container footer {
+    margin-top: 10px;
+    text-align: right;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    font-style: normal;
+}
+.refresh-btn {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 26px; height: 26px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: none;
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, color 0.15s, transform 0.25s;
+    padding: 0; line-height: 1;
+}
+.refresh-btn:hover {
+    background: #fdf6e3;
+    border-color: var(--gold-lt);
+    color: var(--gold);
+    transform: rotate(60deg);
+}
+
+/* ============================================================
+   SPURGEON CARD
+   ============================================================ */
+.spurgeon-card { border-left: 3px solid var(--red); }
+
+.s-date {
+    font-family: var(--f-display);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+}
+.s-entry { margin-bottom: 18px; }
+.s-entry:last-child { margin-bottom: 0; }
+
+.s-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    background: var(--red);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    font-family: var(--f-body);
+}
+.s-verse {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.87rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    padding-left: 10px;
+    border-left: 2px solid var(--gold-lt);
+    line-height: 1.5;
+}
+.s-body {
+    font-size: 0.87rem;
+    color: var(--ink-mid);
+    line-height: 1.82;
+    max-height: 230px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+.s-body::-webkit-scrollbar       { width: 4px; }
+.s-body::-webkit-scrollbar-track { background: transparent; }
+.s-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.s-divider { border: none; border-top: 1px dashed var(--border); margin: 16px 0; }
+.s-note    { font-style: italic; color: var(--ink-light); font-size: 0.87rem; }
+
+/* ============================================================
+   DAILY READING CARD
+   ============================================================ */
+.reading-card { border-left: 3px solid var(--ink-mid); }
+
+#daily-reading-text h3 {
+    font-family: var(--f-display);
+    font-size: 1.02rem;
+    color: var(--ink);
+    margin: 20px 0 4px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--parchment-dk);
+}
+#daily-reading-text h3:first-of-type { margin-top: 0; }
+#daily-reading-text p   { font-size: 0.9rem; color: var(--ink-mid); margin-bottom: 0.4em; line-height: 1.85; }
+#daily-reading-text hr  { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+#daily-reading-text strong { color: var(--ink); }
+
+#daily-reading-text {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+#daily-reading-text::-webkit-scrollbar       { width: 4px; }
+#daily-reading-text::-webkit-scrollbar-track { background: transparent; }
+#daily-reading-text::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+    text-align: center;
+    padding: 22px;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    background: var(--parchment);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 820px) {
+    .left-col  { flex: 1 1 100%; }
+    .container { padding: 0 14px; margin: 18px auto; }
+    .audio-bar { gap: 8px; }
+}

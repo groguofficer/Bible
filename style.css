@@ -2,20 +2,20 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --parchment:      #f4ead5;
-  --parchment-dark: #e8d9b5;
-  --parchment-deep: #d6c495;
-  --ink:            #2b1d0e;
-  --ink-mid:        #4a3520;
-  --ink-light:      #6b5133;
-  --gold:           #b8860b;
-  --gold-bright:    #d4a017;
-  --gold-muted:     #9a7209;
-  --crimson:        #8b1a1a;
-  --crimson-deep:   #6b1212;
-  --highlight-bg:   rgba(184,134,11,0.18);
+  --parchment:      #e8f5f0;
+  --parchment-dark: #ceeade;
+  --parchment-deep: #a8d5be;
+  --ink:            #0d2b1e;
+  --ink-mid:        #1e4a35;
+  --ink-light:      #2e6b4f;
+  --gold:           #2a9d6e;
+  --gold-bright:    #34c98a;
+  --gold-muted:     #1f7a54;
+  --crimson:        #1a6b5a;
+  --crimson-deep:   #124f42;
+  --highlight-bg:   rgba(52,201,138,0.15);
   --highlight-border: var(--gold);
-  --shadow:         rgba(43, 29, 14, 0.35);
+  --shadow:         rgba(13, 43, 30, 0.35);
   --radius-sm:      4px;
   --radius-md:      8px;
   --radius-lg:      16px;
@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #1a120a;
+  background-color: #0a1a12;
   color: var(--ink);
   font-family: 'Crimson Pro', Georgia, serif;
   min-height: 100vh;
@@ -37,11 +37,11 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, #2e1e0a 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, #1a0f05 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 20%, #0e2e1a 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, #051a0a 0%, transparent 60%),
     repeating-linear-gradient(
       45deg, transparent, transparent 2px,
-      rgba(184,134,11,0.03) 2px, rgba(184,134,11,0.03) 4px
+      rgba(52,201,138,0.03) 2px, rgba(52,201,138,0.03) 4px
     );
   pointer-events: none;
   z-index: 0;
@@ -50,7 +50,7 @@ body {
 .vignette {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(10,6,2,0.7) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(2,10,5,0.7) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -80,7 +80,7 @@ header {
   font-weight: 700;
   color: var(--gold-bright);
   letter-spacing: 0.12em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 40px rgba(184,134,11,0.3);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 40px rgba(52,201,138,0.3);
   line-height: 1;
 }
 
@@ -101,8 +101,8 @@ header {
   align-items: center;
   gap: 0.6rem;
   padding: 0.85rem 2rem;
-  background: rgba(20,12,4,0.6);
-  border-bottom: 1px solid rgba(184,134,11,0.2);
+  background: rgba(4,20,10,0.6);
+  border-bottom: 1px solid rgba(52,201,138,0.2);
   font-family: 'Cinzel', serif;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
@@ -166,11 +166,11 @@ main {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(18, 10, 3, 0.96);
+  background: rgba(3,18,8,0.96);
   backdrop-filter: blur(8px);
   padding: 1rem 0 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(184,134,11,0.25);
+  border-bottom: 1px solid rgba(52,201,138,0.25);
 }
 
 /* ── Back Button ── */
@@ -179,8 +179,8 @@ main {
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--parchment-dark);
-  background: rgba(184,134,11,0.12);
-  border: 1px solid rgba(184,134,11,0.35);
+  background: rgba(52,201,138,0.12);
+  border: 1px solid rgba(52,201,138,0.35);
   border-radius: var(--radius-sm);
   padding: 0.4rem 0.9rem;
   cursor: pointer;
@@ -189,7 +189,7 @@ main {
   flex-shrink: 0;
 }
 .back-btn:hover {
-  background: rgba(184,134,11,0.25);
+  background: rgba(52,201,138,0.25);
   color: var(--gold-bright);
   border-color: var(--gold);
 }
@@ -203,15 +203,15 @@ main {
   letter-spacing: 0.06em;
   padding: 0.45rem 1.1rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(184,134,11,0.4);
+  border: 1px solid rgba(52,201,138,0.4);
   background: transparent;
   color: var(--parchment-deep);
   cursor: pointer;
   transition: all 0.2s;
 }
-.tab-btn:hover { background: rgba(184,134,11,0.15); color: var(--gold-bright); }
+.tab-btn:hover { background: rgba(52,201,138,0.15); color: var(--gold-bright); }
 .tab-btn.active {
-  background: rgba(184,134,11,0.25);
+  background: rgba(52,201,138,0.25);
   border-color: var(--gold);
   color: var(--gold-bright);
 }
@@ -230,8 +230,8 @@ main {
   text-align: center;
   padding: 0.7rem 0.5rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(184,134,11,0.3);
-  background: rgba(244,234,213,0.06);
+  border: 1px solid rgba(52,201,138,0.3);
+  background: rgba(232,245,240,0.06);
   color: var(--parchment);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -243,7 +243,7 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(184,134,11,0.15), transparent);
+  background: linear-gradient(135deg, rgba(52,201,138,0.15), transparent);
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -251,11 +251,11 @@ main {
   border-color: var(--gold);
   color: var(--gold-bright);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(184,134,11,0.2);
+  box-shadow: 0 4px 16px rgba(52,201,138,0.2);
 }
 .book-btn:hover::before { opacity: 1; }
 .book-btn.active {
-  background: rgba(184,134,11,0.2);
+  background: rgba(52,201,138,0.2);
   border-color: var(--gold-bright);
   color: var(--gold-bright);
 }
@@ -267,14 +267,14 @@ main {
   gap: 0.45rem;
   padding: 1rem;
   background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(184,134,11,0.2);
+  border: 1px solid rgba(52,201,138,0.2);
   border-radius: var(--radius-md);
   max-height: 160px;
   overflow-y: auto;
 }
 .chapter-pills::-webkit-scrollbar { width: 6px; }
 .chapter-pills::-webkit-scrollbar-track { background: transparent; }
-.chapter-pills::-webkit-scrollbar-thumb { background: rgba(184,134,11,0.4); border-radius: 3px; }
+.chapter-pills::-webkit-scrollbar-thumb { background: rgba(52,201,138,0.4); border-radius: 3px; }
 
 /* ── Verse Jump Bar ── */
 .verse-jump-bar {
@@ -283,7 +283,7 @@ main {
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(184,134,11,0.2);
+  border: 1px solid rgba(52,201,138,0.2);
   border-radius: var(--radius-md);
   margin-top: 0.5rem;
 }
@@ -308,7 +308,7 @@ main {
 }
 .verse-pills::-webkit-scrollbar { width: 6px; }
 .verse-pills::-webkit-scrollbar-track { background: transparent; }
-.verse-pills::-webkit-scrollbar-thumb { background: rgba(184,134,11,0.4); border-radius: 3px; }
+.verse-pills::-webkit-scrollbar-thumb { background: rgba(52,201,138,0.4); border-radius: 3px; }
 
 /* ── Pill Buttons (chapters & verses) ── */
 .pill-btn {
@@ -318,28 +318,28 @@ main {
   min-width: 2.2rem;
   padding: 0.28rem 0.55rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(184,134,11,0.35);
-  background: rgba(244,234,213,0.05);
+  border: 1px solid rgba(52,201,138,0.35);
+  background: rgba(232,245,240,0.05);
   color: var(--parchment-dark);
   cursor: pointer;
   transition: all 0.15s;
   text-align: center;
 }
 .pill-btn:hover {
-  background: rgba(184,134,11,0.2);
+  background: rgba(52,201,138,0.2);
   border-color: var(--gold);
   color: var(--gold-bright);
 }
 .pill-btn.active {
-  background: rgba(139,26,26,0.4);
+  background: rgba(26,107,90,0.4);
   border-color: var(--crimson);
-  color: #f0c0a0;
+  color: #a0f0d8;
 }
 
 /* ── Scripture Display (chapter list) ── */
 .scripture-display {
-  background: rgba(244,234,213,0.06);
-  border: 1px solid rgba(184,134,11,0.25);
+  background: rgba(232,245,240,0.06);
+  border: 1px solid rgba(52,201,138,0.25);
   border-radius: var(--radius-md);
   padding: 2rem 2.5rem;
   min-height: 300px;
@@ -371,7 +371,7 @@ main {
   text-align: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(184,134,11,0.3);
+  border-bottom: 1px solid rgba(52,201,138,0.3);
 }
 
 /* ── Verse Rows ── */
@@ -461,7 +461,7 @@ footer {
   letter-spacing: 0.1em;
   color: var(--ink-light);
   opacity: 0.5;
-  border-top: 1px solid rgba(184,134,11,0.15);
+  border-top: 1px solid rgba(52,201,138,0.15);
 }
 
 /* ── Responsive ── */

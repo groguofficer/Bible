@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KJV Bible Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-texture"></div>
+  <div class="vignette"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-ornament">✦</div>
+      <h1 class="title">Holy Bible</h1>
+      <p class="subtitle">King James Version · Pure Cambridge Edition</p>
+      <div class="header-ornament">✦</div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb trail -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Navigation trail">
+    <span class="crumb active" id="crumb-home" role="button" tabindex="0">Books</span>
+    <span class="crumb-sep" id="sep-1" hidden>›</span>
+    <span class="crumb" id="crumb-book" hidden></span>
+    <span class="crumb-sep" id="sep-2" hidden>›</span>
+    <span class="crumb" id="crumb-chapter" hidden></span>
+  </nav>
+
+  <main>
+    <!-- PANEL 1: Book selection -->
+    <section id="panel-books" class="panel active" aria-label="Select a book">
+      <div class="panel-header">
+        <h2>Select a Book</h2>
+        <div class="testament-tabs">
+          <button class="tab-btn active" data-testament="OT">Old Testament</button>
+          <button class="tab-btn" data-testament="NT">New Testament</button>
+          <button class="tab-btn" data-testament="ALL">All Books</button>
+        </div>
+      </div>
+      <div class="book-grid" id="book-grid"></div>
+    </section>
+
+    <!-- PANEL 2: Chapter selection + chapter display -->
+    <section id="panel-chapters" class="panel" aria-label="Select a chapter" hidden>
+      <div class="panel-header">
+        <div class="panel-title-row">
+          <button class="back-btn" id="back-to-books" aria-label="Back to books">← Books</button>
+          <h2 id="chapter-panel-title"></h2>
+        </div>
+        <div class="chapter-pills" id="chapter-pills"></div>
+      </div>
+      <div class="scripture-display" id="chapter-display">
+        <p class="hint-text">Select a chapter above to begin reading.</p>
+      </div>
+    </section>
+
+    <!-- PANEL 3: Verse selection overlay -->
+    <section id="panel-verses" class="panel" aria-label="Select a verse" hidden>
+      <div class="panel-header">
+        <div class="panel-title-row">
+          <button class="back-btn" id="back-to-chapters" aria-label="Back to chapter">← Chapter</button>
+          <h2 id="verse-panel-title"></h2>
+        </div>
+        <div class="verse-pills" id="verse-pills"></div>
+      </div>
+      <div class="scripture-display single-verse" id="verse-display">
+        <p class="hint-text">Select a verse above to read it here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>King James Bible · Pure Cambridge Edition</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

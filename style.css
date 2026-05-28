@@ -2,7 +2,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --parchment:      #f4faf7;
+  --parchment:      #6b7275;
   --parchment-dark: #e2f2ea;
   --parchment-deep: #c4e3d2;
   --ink:            #0d2b1e;
